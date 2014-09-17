@@ -9,16 +9,19 @@ import os
 clear = lambda: os.system('clear') #replace 'clear' with 'cls' for windows
 
 #signup
-while (1==1): #infinite loop
+while (True): #infinite loop
 	clear()
-	print "\nPlease enter your information below if you would like to join the Hopkins Computer Science Club." #the escape sequence '\n' creates a new line
-	name = raw_input("\nWhat is your name? \n") #raw_input() is different from input(). the former accepts any type of input whereas the ladder only accepts numbers and (i believe) characters
-	email = raw_input("\nWhat is your email address? \n")
+	fname = raw_input("What is your first name? \n") #raw_input() is different from input(). the former accepts any type of input whereas the ladder only accepts numbers and (i believe) characters
+	lname = raw_input("\nWhat is your last name? \n")
+	grade = raw_input("\nWhat is your graduation year? (ex: 2015) \n")
 	comment = raw_input("\nFeel free to leave a comment:\n")
+
+	#generate hopkins email
+	email = fname[0].lower() + lname.lower() + grade[2] + grade[3] + "@students.hopkins.edu"
 
 	#write all data to file
 	f = open("list.txt","a") #open file with the 'a' parameter, meaning we want to write but not overwrite the file
-	f.write(name + "    " + email + "    " + comment + "\n")
+	f.write(fname + " " + lname +  "    " + email + "    " + comment + "\n")
 	f.close() #close file for safety
 
 	#write email list formatted for copy+paste into google groups
