@@ -6,15 +6,16 @@ Feel free to use this program for signup in the future :)
 
 #define a screen clearing function
 import os
-clear = lambda: os.system('clear') #replace 'clear' with 'cls' for windows
+clear = lambda: os.system('cls') #replace 'clear' with 'cls' for windows
 
 #signup
 while (True): #infinite loop
 	clear()
-	fname = raw_input("What is your first name? \n") #raw_input() is different from input(). the former accepts any type of input whereas the ladder only accepts numbers and (i believe) characters
-	lname = raw_input("\nWhat is your last name? \n")
-	grade = raw_input("\nWhat is your graduation year? (ex: 2015) \n")
-	comment = raw_input("\nFeel free to leave a comment:\n")
+	#in python 2.x.x use raw_input(), in python 3.x.x use input()
+	fname = input("What is your first name? \n")
+	lname = input("\nWhat is your last name? \n")
+	grade = input("\nWhat is your graduation year? (ex: 2015) \n")
+	comment = input("\nFeel free to leave a comment:\n")
 
 	#generate hopkins email
 	email = fname[0].lower() + lname.lower() + grade[2] + grade[3] + "@students.hopkins.edu"
@@ -29,5 +30,5 @@ while (True): #infinite loop
 	f.write(email + ", ")
 	f.close()
 
-	print "\nThank you for signing up! We will email you soon with club information."
-	raw_input("Press enter to refresh the screen. ") #after enter is pressed, the loop restarts
+	print ("\nThank you for signing up! We will email you soon with club information.")
+	input("Press enter to refresh the screen. ") #after enter is pressed, the loop restarts
